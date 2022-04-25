@@ -6,4 +6,4 @@ This is a solution to the [Time tracking dashboard challenge on Frontend Mentor]
 ### Links
 
 - Solution URL: [https://github.com/xphstos/time-tracking-dashboard](https://github.com/xphstos/time-tracking-dashboard)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://1af9b148175c4ea7fd0ae6470552a2d0d2e11e5a.surge.sh/](https://1af9b148175c4ea7fd0ae6470552a2d0d2e11e5a.surge.sh/)
