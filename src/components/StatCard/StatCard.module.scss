@@ -1,0 +1,132 @@
+@use "sass:color" as *;
+@use "../../scss/functions" as *;
+@use "../../scss/mixins" as *;
+
+.card {
+  --top-padding: 2.75rem;
+  border-radius: fluidSize(16px, 24px, 1024);
+  background: var(--icon), var(--theme);
+  padding-top: var(--top-padding);
+  display: grid;
+
+  @media screen and (max-width: 1200px) {
+    aspect-ratio: 1 / 1;
+  }
+  @media screen and (max-width: 620px) {
+    aspect-ratio: unset;
+  }
+
+  &[data-type="work"] {
+    --theme: linear-gradient(var(--work), var(--work)) no-repeat top / 100% 50%;
+    --icon: url("../../images/icon-work.svg") no-repeat calc(100% - 1.5rem) -0.5rem;
+  }
+  &[data-type="play"] {
+    --theme: linear-gradient(var(--play), var(--play)) no-repeat top / 100% 50%;
+    --icon: url("../../images/icon-play.svg") no-repeat calc(100% - 1.5rem) -0.5rem;
+  }
+  &[data-type="study"] {
+    --theme: linear-gradient(var(--study), var(--study)) no-repeat top / 100%
+      50%;
+    --icon: url("../../images/icon-study.svg") no-repeat calc(100% - 1.5rem) -0.5rem;
+  }
+  &[data-type="exercise"] {
+    --theme: linear-gradient(var(--exercise), var(--exercise)) no-repeat top /
+      100% 50%;
+    --icon: url("../../images/icon-exercise.svg") no-repeat calc(100% - 1.5rem) -0.5rem;
+  }
+  &[data-type="social"] {
+    --theme: linear-gradient(var(--social), var(--social)) no-repeat top / 100%
+      50%;
+    --icon: url("../../images/icon-social.svg") no-repeat calc(100% - 1.5rem) -0.5rem;
+  }
+  &[data-type="self-care"] {
+    --theme: linear-gradient(var(--self-care), var(--self-care)) no-repeat top /
+      100% 50%;
+    --icon: url("../../images/icon-self-care.svg") no-repeat calc(100% - 1.5rem) -0.5rem;
+  }
+
+  &:hover {
+    .innerCard {
+      background-color: scale-color(
+        c("off-white"),
+        $lightness: -60%,
+        $saturation: -60%
+      );
+    }
+  }
+}
+
+.innerCard {
+  background: scale-color(c("off-black"), $lightness: 10%);
+  padding: 1.5rem;
+  border-radius: fluidSize(16px, 24px, 1024);
+  display: flex;
+  flex-direction: column;
+  gap: fluidSize(12px, 24px, 1024);
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+
+.title {
+  font-size: 1rem;
+  color: v("white");
+}
+
+.hours {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  font-weight: 300;
+
+  @media screen and (min-width: 620px) {
+    display: block;
+  }
+}
+
+.currentHours {
+  color: v("white");
+  font-size: fluidSize(32px, 56px, 1024);
+
+  @media screen and (max-width: 620px) {
+    line-height: 1;
+  }
+}
+
+.actions {
+  @include size(3rem);
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25em;
+  border-radius: 3rem;
+  border: none;
+  background: transparent;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+
+  span {
+    @include size(0.25rem);
+    border-radius: 0.25rem;
+    background-color: v("off-white");
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+  }
+
+  &:hover {
+    background-color: scale-color(
+      c("off-white"),
+      $lightness: -70%,
+      $saturation: -60%
+    );
+
+    span {
+      opacity: 1;
+    }
+  }
+}

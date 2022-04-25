@@ -1,0 +1,7 @@
+@use "../../scss/functions" as *;
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 16rem);
+  gap: fluidSize(24px, 32px, 1024);
+}

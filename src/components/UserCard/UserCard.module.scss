@@ -1,0 +1,86 @@
+@use "../../scss/functions" as *;
+
+.card {
+  --span: span 2;
+  align-self: start;
+  background-color: scale-color(c("off-black"), $lightness: 10%);
+  border-radius: fluidSize(16px, 24px, 1024);
+  grid-area: 1 / 1 / var(--span) / span 1;
+
+  @media screen and (max-width: 1200px) {
+    --span: span 3;
+  }
+  @media screen and (max-width: 900px) {
+    --span: span 6;
+  }
+  @media screen and (max-width: 620px) {
+    --span: span 1;
+  }
+}
+
+.user {
+  padding: fluidSize(24px, 32px, 1024);
+  border-radius: fluidSize(16px, 24px, 1024);
+  background-color: v("accent");
+  color: v("white");
+
+  @media screen and (max-width: 475px) {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.image {
+  flex: 0 0 fluidSize(72px, 96px, 1024);
+  width: fluidSize(72px, 96px, 1024);
+  height: auto;
+  border-radius: 8rem;
+  border: fluidSize(2px, 4px, 1024) solid v("white");
+}
+
+.title {
+  flex: 1;
+  line-height: 1.15;
+  font-weight: 300;
+  font-size: fluidSize(24px, 40px, 1024);
+  margin-block: fluidSize(24px, 40px, 1024);
+
+  @media screen and (max-width: 475px) {
+    margin-block: 0;
+  }
+}
+
+.titleSmall {
+  font-size: 1rem;
+  display: block;
+  color: v("off-white");
+}
+
+.tabs {
+  padding: fluidSize(24px, 32px, 1024);
+
+  @media screen and (max-width: 475px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.875rem;
+  }
+
+  button {
+    all: unset;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 300;
+    display: flex;
+    padding: 0.5em 0;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &[data-active="true"] {
+      color: v("white");
+    }
+  }
+}
