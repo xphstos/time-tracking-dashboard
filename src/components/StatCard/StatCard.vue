@@ -20,7 +20,7 @@ defineProps({
           }}{{ getTimeUnit(hours.previous) }}
         </div>
       </div>
-      <button :class="$style.actions">
+      <button :class="$style.actions" title="actions">
         <span></span>
         <span></span>
         <span></span>
